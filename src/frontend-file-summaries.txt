@@ -1,0 +1,17 @@
+{
+  "frontend/src/index.css": "Global styles with Valentine's Day color palette (wine red, cream, gold) in OKLCH, romantic typography (Playfair Display, Great Vibes, Inter), fade-in animations, pattern overlays, and utility classes for themed sections; fixed @apply directive to avoid opacity modifier syntax errors.",
+  "frontend/src/App.tsx": "Main application component that renders the single-page Valentine's Day website with five sections (Hero, Love Letter, Memories, Reasons, Closing) plus footer in order.",
+  "frontend/src/components/valentine/HeroSection.tsx": "Hero section with animated title \"To the Love of My Life\", romantic subtitle, floating heart decorations, and cream gradient background with pattern overlay.",
+  "frontend/src/components/valentine/Section.tsx": "Reusable section wrapper component that supports cream or wine variants with gradient backgrounds and pattern overlays for consistent section styling.",
+  "frontend/src/components/valentine/CardSurface.tsx": "Shared card surface component with rounded corners, backdrop blur, shadows, and optional hover lift effect for consistent card styling across sections.",
+  "frontend/src/components/valentine/LoveLetterSection.tsx": "Editable love letter section with textarea editor, styled preview, edit/preview toggle, and copy-to-clipboard functionality with visual feedback.",
+  "frontend/src/components/valentine/MemoriesSection.tsx": "Memories grid section that manages an array of memory cards, allows adding new memories, and displays them in a responsive grid layout.",
+  "frontend/src/components/valentine/MemoryCard.tsx": "Individual memory card component with editable title/description, clipboard image paste support, copy text functionality, and delete option.",
+  "frontend/src/components/valentine/ReasonsSection.tsx": "\"Reasons I Love You\" section displaying romantic text items with themed icons (heart, sparkles, star, etc.) in a responsive two-column grid with gold accents.",
+  "frontend/src/components/valentine/ClosingSection.tsx": "Final closing section with romantic quote, Valentine's message, and signature \"by vkayyy\" in script font on cream background.",
+  "frontend/src/components/valentine/Footer.tsx": "Footer component with copyright, attribution to caffeine.ai with UTM tracking, and heart icon matching the romantic theme.",
+  "frontend/src/hooks/useInViewFade.ts": "Custom hook using IntersectionObserver to detect when elements enter viewport and trigger fade-in animations for smooth section reveals.",
+  "frontend/src/hooks/useClipboardCopy.ts": "Custom hook for copying text to clipboard with status tracking (idle/success/error) and automatic reset for UI feedback.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for React Query hooks; intentionally minimal as backend has no methods and all state is managed locally.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Valentine's Day theme including custom font families (Playfair Display, Great Vibes, Inter) for romantic typography."
+}
