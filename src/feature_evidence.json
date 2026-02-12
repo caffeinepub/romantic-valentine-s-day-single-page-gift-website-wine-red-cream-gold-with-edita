@@ -2,11 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-single-page-valentine-s-day-website-with-a-warm-intimate-luxurious-look-using-a-deep-wine-red-soft-creamy-white-palette-with-subtle-gold-accents-and-apply-the-styling-consistently-across-all-sections",
-      "featureTitle": "Create a single-page Valentine’s Day website with a warm, intimate, luxurious look using a deep wine red + soft creamy white palette with subtle gold accents, and apply the styling consistently across all sections.",
+      "featureId": "feature-deploy-the-user-s-most-recently-edited-draft-to-production-so-the-live-production-site-reflects-the-latest-draft-changes",
+      "featureTitle": "Deploy the user’s most recently edited draft to production so the live/production site reflects the latest draft changes.",
       "files": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
+        "frontend/src/App.tsx",
+        "frontend/src/components/admin/PublishDraftBar.tsx",
+        "frontend/src/hooks/useAdminTokenFromHash.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,161 +18,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-page-structure-with-these-sections-in-order-1-hero-with-title-to-the-love-of-my-life-and-a-short-romantic-subtitle-2-love-letter-editable-area-for-a-personal-message-3-memories-section-with-cards-4-reasons-i-love-you-section-with-romantic-text-and-or-icons-hearts-roses-stars-5-final-closing-section-with-a-sweet-valentine-s-message-quote-that-ends-with-the-exact-text-by-vkayyy",
-      "featureTitle": "Implement the page structure with these sections in order: (1) Hero with title “To the Love of My Life” and a short romantic subtitle, (2) Love Letter editable area for a personal message, (3) Memories section with cards, (4) “Reasons I Love You” section with romantic text and/or icons (hearts/roses/stars), (5) Final closing section with a sweet Valentine’s message/quote that ends with the exact text “by vkayyy”.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/main.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-elegant-romantic-typography-use-a-script-or-serif-font-for-headings-and-a-clean-readable-font-for-body-text-including-consistent-heading-hierarchy-h1-h2-h3-and-comfortable-line-height-for-long-form-reading-in-the-love-letter",
-      "featureTitle": "Add elegant, romantic typography: use a script or serif font for headings and a clean, readable font for body text, including consistent heading hierarchy (H1/H2/H3) and comfortable line-height for long-form reading in the love letter.",
-      "files": [
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-style-the-background-so-that-sections-alternate-between-creamy-white-and-wine-red-including-soft-gradients-subtle-heart-rose-pattern-overlays-and-rounded-cards-for-content-blocks-love-letter-memory-cards-reasons-cards",
-      "featureTitle": "Style the background so that sections alternate between creamy white and wine red, including soft gradients, subtle heart/rose pattern overlays, and rounded cards for content blocks (love letter, memory cards, reasons cards).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/valentine/CardSurface.tsx",
-        "frontend/src/components/valentine/Section.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-smooth-soft-animations-across-the-site-gentle-fade-ins-on-section-entry-e-g-on-scroll-into-view-and-subtle-hover-focus-transitions-for-interactive-elements-buttons-cards-inputs",
-      "featureTitle": "Implement smooth, soft animations across the site: gentle fade-ins on section entry (e.g., on scroll into view), and subtle hover/focus transitions for interactive elements (buttons, cards, inputs).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/hooks/useInViewFade.ts",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-make-the-love-letter-section-editable-with-an-on-page-text-editor-e-g-textarea-and-a-styled-preview-area-that-renders-the-message-in-the-site-s-typography-provide-a-one-click-copy-letter-control-that-copies-the-current-letter-text-to-the-clipboard",
-      "featureTitle": "Make the Love Letter section editable with an on-page text editor (e.g., textarea) and a styled preview area that renders the message in the site’s typography. Provide a one-click “Copy letter” control that copies the current letter text to the clipboard.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/valentine/LoveLetterSection.tsx",
-        "frontend/src/hooks/useClipboardCopy.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-memories-section-as-a-grid-of-editable-cards-where-the-user-can-add-update-content-and-easily-paste-copy-allow-adding-a-memory-title-description-support-pasting-an-image-from-the-clipboard-into-a-memory-card-when-the-browser-provides-an-image-and-provide-a-copy-action-per-memory-card-to-copy-its-text-content-title-description",
-      "featureTitle": "Implement the Memories section as a grid of editable cards where the user can add/update content and easily paste/copy: allow adding a memory title + description, support pasting an image from the clipboard into a memory card (when the browser provides an image), and provide a “Copy” action per memory card to copy its text content (title + description).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/valentine/MemoriesSection.tsx",
-        "frontend/src/components/valentine/MemoryCard.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-a-reasons-i-love-you-section-with-romantic-text-items-and-decorative-icons-hearts-roses-stars-styled-in-the-site-palette-including-subtle-gold-accents-displayed-as-a-responsive-set-of-rounded-cards-or-list-items",
-      "featureTitle": "Create a “Reasons I Love You” section with romantic text items and decorative icons (hearts, roses, stars) styled in the site palette (including subtle gold accents), displayed as a responsive set of rounded cards or list items.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/valentine/ReasonsSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-for-subtle-background-pattern-overlays-and-romantic-decorative-accents-without-routing-images-through-the-backend",
-      "featureTitle": "Add required generated images as static assets under frontend/public/assets/generated and use them in the UI for subtle background pattern overlays and romantic decorative accents (without routing images through the backend).",
-      "files": [
-        "frontend/src/components/valentine/ReasonsSection.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-9"
       ],
       "confidence": "high"
     }

@@ -1,142 +1,24 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Romantic Valentine’s Day personal gift website with wine red/creamy white/gold palette, elegant typography, soft animations, and multiple themed sections (hero, love letter, memories, reasons, closing quote).",
-  "architectural_notes": [
-    "Use deep wine red, soft creamy white, and subtle gold accents as the core color palette.",
-    "Alternate section backgrounds (creamy white vs wine red) with soft gradients and subtle heart/rose patterning; use rounded cards for content blocks.",
-    "Typography direction: romantic script/serif for headings and clean readable font for body copy.",
-    "Keep interactions/animations gentle (fade-ins, soft transitions) to maintain an intimate, luxurious mood."
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [
+    "Edits made in draft are not appearing on the live/production site; likely draft not deployed to production and/or browser caching showing an old version."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Subtle seamless heart pattern overlay, wine-red on transparent (valentine-pattern-wine.dim_1600x1600.png)\n- Subtle seamless heart pattern overlay, creamy-white on transparent (valentine-pattern-cream.dim_1600x1600.png)\n- Minimal romantic icon set in subtle gold (heart, rose, star) on transparent (valentine-icons-gold.dim_512x512.png)",
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-create-a-single-page-valentine-s-day-website-with-a-warm-intimate-luxurious-look-using-a-deep-wine-red-soft-creamy-white-palette-with-subtle-gold-accents-and-apply-the-styling-consistently-across-all-sections",
-      "title": "Create a single-page Valentine’s Day website with a warm, intimate, luxurious look using a deep wine red + soft creamy white palette with subtle gold accents, and apply the styling consistently across all sections.",
+      "id": "feature-deploy-the-user-s-most-recently-edited-draft-to-production-so-the-live-production-site-reflects-the-latest-draft-changes",
+      "title": "Deploy the user’s most recently edited draft to production so the live/production site reflects the latest draft changes.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-implement-the-page-structure-with-these-sections-in-order-1-hero-with-title-to-the-love-of-my-life-and-a-short-romantic-subtitle-2-love-letter-editable-area-for-a-personal-message-3-memories-section-with-cards-4-reasons-i-love-you-section-with-romantic-text-and-or-icons-hearts-roses-stars-5-final-closing-section-with-a-sweet-valentine-s-message-quote-that-ends-with-the-exact-text-by-vkayyy",
-      "title": "Implement the page structure with these sections in order: (1) Hero with title “To the Love of My Life” and a short romantic subtitle, (2) Love Letter editable area for a personal message, (3) Memories section with cards, (4) “Reasons I Love You” section with romantic text and/or icons (hearts/roses/stars), (5) Final closing section with a sweet Valentine’s message/quote that ends with the exact text “by vkayyy”.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-elegant-romantic-typography-use-a-script-or-serif-font-for-headings-and-a-clean-readable-font-for-body-text-including-consistent-heading-hierarchy-h1-h2-h3-and-comfortable-line-height-for-long-form-reading-in-the-love-letter",
-      "title": "Add elegant, romantic typography: use a script or serif font for headings and a clean, readable font for body text, including consistent heading hierarchy (H1/H2/H3) and comfortable line-height for long-form reading in the love letter.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-style-the-background-so-that-sections-alternate-between-creamy-white-and-wine-red-including-soft-gradients-subtle-heart-rose-pattern-overlays-and-rounded-cards-for-content-blocks-love-letter-memory-cards-reasons-cards",
-      "title": "Style the background so that sections alternate between creamy white and wine red, including soft gradients, subtle heart/rose pattern overlays, and rounded cards for content blocks (love letter, memory cards, reasons cards).",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-smooth-soft-animations-across-the-site-gentle-fade-ins-on-section-entry-e-g-on-scroll-into-view-and-subtle-hover-focus-transitions-for-interactive-elements-buttons-cards-inputs",
-      "title": "Implement smooth, soft animations across the site: gentle fade-ins on section entry (e.g., on scroll into view), and subtle hover/focus transitions for interactive elements (buttons, cards, inputs).",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-make-the-love-letter-section-editable-with-an-on-page-text-editor-e-g-textarea-and-a-styled-preview-area-that-renders-the-message-in-the-site-s-typography-provide-a-one-click-copy-letter-control-that-copies-the-current-letter-text-to-the-clipboard",
-      "title": "Make the Love Letter section editable with an on-page text editor (e.g., textarea) and a styled preview area that renders the message in the site’s typography. Provide a one-click “Copy letter” control that copies the current letter text to the clipboard.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-the-memories-section-as-a-grid-of-editable-cards-where-the-user-can-add-update-content-and-easily-paste-copy-allow-adding-a-memory-title-description-support-pasting-an-image-from-the-clipboard-into-a-memory-card-when-the-browser-provides-an-image-and-provide-a-copy-action-per-memory-card-to-copy-its-text-content-title-description",
-      "title": "Implement the Memories section as a grid of editable cards where the user can add/update content and easily paste/copy: allow adding a memory title + description, support pasting an image from the clipboard into a memory card (when the browser provides an image), and provide a “Copy” action per memory card to copy its text content (title + description).",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-a-reasons-i-love-you-section-with-romantic-text-items-and-decorative-icons-hearts-roses-stars-styled-in-the-site-palette-including-subtle-gold-accents-displayed-as-a-responsive-set-of-rounded-cards-or-list-items",
-      "title": "Create a “Reasons I Love You” section with romantic text items and decorative icons (hearts, roses, stars) styled in the site palette (including subtle gold accents), displayed as a responsive set of rounded cards or list items.",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-for-subtle-background-pattern-overlays-and-romantic-decorative-accents-without-routing-images-through-the-backend",
-      "title": "Add required generated images as static assets under frontend/public/assets/generated and use them in the UI for subtle background pattern overlays and romantic decorative accents (without routing images through the backend).",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Create hero section with romantic title (“To the Love of My Life”) and short subtitle",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Implement smooth, soft animations (fade-ins, gentle transitions) across the site",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add editable love letter section for a personal message",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Add memories section with photo/cards where user can paste/copy content",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Add “Reasons I love you” section with romantic text and/or icons (hearts, roses, stars)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Add final Valentine’s message/quote section ending with “by vkayyy”",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Apply elegant romantic typography (script/serif headings, clean body font)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-8",
-      "summary": "Style background to alternate creamy white and wine red sections with soft gradients, subtle heart/rose patterns, and rounded cards; include subtle gold accents",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
-  "gameProjectType": "none",
-  "projectName": "Romantic Valentine’s Day single-page gift website (wine red/cream/gold) with editable sections",
+  "new_feature_requests": [],
+  "projectName": "Deploy the latest draft to production",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

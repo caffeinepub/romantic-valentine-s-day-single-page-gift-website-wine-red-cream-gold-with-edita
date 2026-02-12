@@ -1,221 +1,31 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine’s Day single-page gift site (wine/cream/gold) with editable Love Letter & Memories",
+  "title": "Draft-to-production publish action (frontend wiring)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Apply a warm, intimate, luxurious wine-red/cream palette with subtle gold accents consistently across the single page.",
+      "summary": "Add a minimal admin-only UI in the draft site that triggers the existing backend publishDraftToProduction capability so the latest edited draft can be deployed to production without changing page content.",
       "acceptanceCriteria": [
-        "All sections use the specified palette with consistent spacing, borders, and corner radius for a cohesive look.",
-        "Gold is used sparingly (e.g., dividers, icons, small highlights) and does not overpower the wine/cream base."
+        "A new production deployment is created from the latest draft state (not an older build).",
+        "After deployment completes, the production/live site shows the same updated content as the draft when opened in an incognito window or after a hard refresh.",
+        "The draft URL remains accessible for further edits: https://unique-ivory-kkt-draft.caffeine.xyz/#caffeineAdminToken=640f49c9763a934d49fea9aed16a4ff2dca78e1f94594fb994a9e27de41b5beb"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/hooks/useAdminTokenFromHash.ts",
           "operation": "create",
-          "description": "Define global theme tokens (wine/cream/gold), consistent spacing/radius/shadow utilities, and base page styling to enforce the required palette and cohesive look across all sections."
+          "description": "Create a small hook that reads and tracks the presence/value of the #caffeineAdminToken from window.location.hash (and updates on hash changes) to enable showing admin-only controls on the draft URL."
         },
         {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind theme with Valentine palette tokens and any needed animation utilities to support consistent wine/cream/gold styling across the app."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Build the single-page structure with the five required sections in order and ensure required exact texts are present.",
-      "acceptanceCriteria": [
-        "Hero displays the specified title text exactly: “To the Love of My Life”.",
-        "Final section’s last line ends with the exact substring: by vkayyy.",
-        "All five sections are present and visibly distinct."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/admin/PublishDraftBar.tsx",
           "operation": "create",
-          "description": "Implement the single-page layout rendering the five required sections in order (Hero, Love Letter, Memories, Reasons, Final Closing) with the exact required texts and distinct section wrappers."
-        },
-        {
-          "path": "frontend/src/main.tsx",
-          "operation": "modify",
-          "description": "Ensure the app renders the single-page Valentine experience (wire the created App.tsx if needed) without introducing additional routes/pages."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Add elegant romantic typography with clear heading hierarchy and readable long-form love-letter text.",
-      "acceptanceCriteria": [
-        "Headings use a distinct script/serif style; body text uses a clean sans/legible font.",
-        "Long-form text (love letter) is readable on mobile and desktop (no overly small font sizes, adequate line-height)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add font imports (script/serif for headings, clean sans for body), establish H1/H2/H3 hierarchy, and set comfortable line-height and responsive font sizing for long-form reading (especially in the love letter preview/editor)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Alternate section backgrounds (cream/wine) with soft gradients, subtle pattern overlays, and consistent rounded cards.",
-      "acceptanceCriteria": [
-        "Adjacent sections alternate between cream and wine backgrounds.",
-        "At least one subtle pattern overlay is visible on both a cream section and a wine section without harming text contrast.",
-        "Cards use rounded corners and consistent shadow/border treatment across sections."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/valentine/Section.tsx",
-          "operation": "create",
-          "description": "Create a reusable Section wrapper that supports alternating cream/wine variants, optional gradient, and pattern overlay layering using generated assets. (If using shadcn-ui primitives, use them for consistent containers; verify the component's usage instructions before implementing.)"
-        },
-        {
-          "path": "frontend/src/components/valentine/CardSurface.tsx",
-          "operation": "create",
-          "description": "Create a shared card surface wrapper (rounded corners + consistent border/shadow) used by Love Letter, Memories cards, and Reasons items for cohesive styling. (If using shadcn-ui Card, use it to provide the base; verify the component's usage instructions before implementing.)"
+          "description": "Create an admin-only banner/control that appears when #caffeineAdminToken is present and lets the user trigger publishing. Use the existing core-infrastructure actor wiring via useActor() to call publishDraftToProduction(), and use existing shadcn-ui Button (and any existing UI primitives already in the repo) for the action + status UI. Verify the component's usage instructions before implementing."
         },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Wrap each of the five sections with the Section component, alternating cream/wine backgrounds in order and applying consistent card styling for content blocks."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Add gentle fade-in on section entry and subtle hover/focus transitions for interactive elements.",
-      "acceptanceCriteria": [
-        "Sections fade in as they enter the viewport (or on initial load for above-the-fold hero) with non-jarring durations/easing.",
-        "Buttons/cards/inputs have subtle hover/focus transitions (e.g., shadow/transform/color) consistent with the romantic theme.",
-        "Animations do not block interaction and do not cause noticeable layout shift."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useInViewFade.ts",
-          "operation": "create",
-          "description": "Implement a small IntersectionObserver-based hook to apply a fade/translate-in class when a section enters the viewport."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add keyframes/classes for soft fade-in animations and define consistent hover/focus transition styles for buttons, cards, inputs, and editable areas."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Apply in-view fade behavior to sections (hero on load; subsequent sections on scroll) using the useInViewFade hook so animations are consistent and non-blocking."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Create an editable Love Letter section with a styled live preview and a one-click copy-to-clipboard control with feedback.",
-      "acceptanceCriteria": [
-        "User can type and edit the love letter directly on the page.",
-        "A preview panel updates as the user types (or on save) and matches the site’s styling.",
-        "A copy action copies the full letter text to the clipboard and provides clear UI feedback (e.g., “Copied”)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/valentine/LoveLetterSection.tsx",
-          "operation": "create",
-          "description": "Implement the Love Letter editor (textarea) + styled preview panel using the site typography, plus a “Copy letter” control with clear feedback. (If using shadcn-ui Button/Textarea, use them for consistent styling; verify the component's usage instructions before implementing.)"
-        },
-        {
-          "path": "frontend/src/hooks/useClipboardCopy.ts",
-          "operation": "create",
-          "description": "Create a small hook to copy text to the clipboard and return UI-friendly status (idle/success/error) for “Copied” feedback."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wire LoveLetterSection into the page in the required order and ensure it inherits the section/card styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Build an editable Memories grid with add/update, clipboard image paste into a card, and per-card copy of text content.",
-      "acceptanceCriteria": [
-        "User can add or edit at least a few memory cards (title + description) on-page.",
-        "Pasting an image into a memory card attaches/displays the image in that card (in browsers that support clipboard image paste).",
-        "Each memory card has a copy action that copies its textual content to the clipboard."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/valentine/MemoriesSection.tsx",
-          "operation": "create",
-          "description": "Implement an editable memories grid with add/update for title+description, per-card copy action (title+description), and per-card clipboard image paste handling (display pasted image when available). (If using shadcn-ui Card/Button/Input/Textarea, use them to standardize UI; verify the component's usage instructions before implementing.)"
-        },
-        {
-          "path": "frontend/src/components/valentine/MemoryCard.tsx",
-          "operation": "create",
-          "description": "Create a focused MemoryCard component encapsulating editing controls, paste target, image preview, and copy action behavior. (If using shadcn-ui components, verify the component's usage instructions before implementing.)"
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wire MemoriesSection into the page in the required order and ensure it uses the shared card styling and animations."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Create a responsive “Reasons I Love You” section with romantic text items and themed decorative icons styled with subtle gold accents.",
-      "acceptanceCriteria": [
-        "Section includes multiple reason items with either icon + text or icon-accented text.",
-        "Icons visually match the theme and do not look like default unstyled emojis (unless intentionally styled to fit).",
-        "Layout is responsive (e.g., 1 column on mobile, multi-column on larger screens)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/valentine/ReasonsSection.tsx",
-          "operation": "create",
-          "description": "Implement a responsive set of rounded reason cards/list items with romantic text and decorative icons styled in subtle gold. Use the generated icon asset for consistent themed visuals rather than default emojis. (If using shadcn-ui Card/Badge/Button, verify the component's usage instructions before implementing.)"
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wire ReasonsSection into the page in the required order and ensure the layout is responsive and matches the shared card/section styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Add required generated images under frontend/public/assets/generated and reference them directly for pattern overlays and decorative accents.",
-      "acceptanceCriteria": [
-        "Generated images exist in frontend/public/assets/generated and are referenced directly by the frontend.",
-        "Pattern overlays are implemented using these assets and maintain readable contrast for text in each section."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/valentine-pattern-wine.dim_1600x1600.png",
-          "operation": "create",
-          "description": "Add the generated seamless heart pattern overlay asset (wine-red on transparent) as a static public asset."
-        },
-        {
-          "path": "frontend/public/assets/generated/valentine-pattern-cream.dim_1600x1600.png",
-          "operation": "create",
-          "description": "Add the generated seamless heart pattern overlay asset (creamy-white on transparent) as a static public asset."
-        },
-        {
-          "path": "frontend/public/assets/generated/valentine-icons-gold.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated minimal romantic icon set (heart/rose/star) in subtle gold as a static public asset."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Reference frontend/public/assets/generated/valentine-pattern-wine.dim_1600x1600.png and frontend/public/assets/generated/valentine-pattern-cream.dim_1600x1600.png for subtle section overlays, and define utility classes for controlled opacity/contrast."
-        },
-        {
-          "path": "frontend/src/components/valentine/ReasonsSection.tsx",
-          "operation": "modify",
-          "description": "Reference frontend/public/assets/generated/valentine-icons-gold.dim_512x512.png to render gold heart/rose/star decorative accents within reason items (direct frontend reference; no backend involvement)."
+          "description": "Wire the new PublishDraftBar into the app so it renders above the Valentine sections only when the admin token is present (no new routes/pages). Ensure the control shows clear success/failure state and reminds the user to hard refresh or check in an incognito window after publish completes."
         }
       ]
     }

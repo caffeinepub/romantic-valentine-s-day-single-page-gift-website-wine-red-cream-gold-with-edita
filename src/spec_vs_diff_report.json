@@ -1,77 +1,50 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T16:38:46.627Z",
-  "summary": "Most core UI requirements appear implemented: single-page structure with 5 sections, wine/cream alternating Section wrapper with pattern overlay classes, romantic typography, in-view fade animations, editable love letter with copy, editable memories with add/edit/copy and clipboard image paste, and a reasons grid with icons. However, the diff does not provide clear evidence that the required generated image assets exist/are used for both cream and wine pattern overlays, and it adds several unrequested features (Internet Identity/react-query actor plumbing, lucide-react icon dependency usage, and a marketing footer attribution).",
+  "generatedAt": "2026-02-12T18:31:40.208Z",
+  "summary": "Diff adds an admin-only “Publish to Production” UI and a backend method `publishDraftToProduction()` that copies the backend `draft` value into `production`. However, the BuildRequest’s notion of creating a new production deployment from the latest draft state (and keeping the draft URL/editing flow intact) is not demonstrably implemented from the provided changes alone.",
   "missing_requirements": [
     {
-      "id": "REQ-9",
-      "requirement": "Add required generated images as static assets under frontend/public/assets/generated and use them in the UI for subtle background pattern overlays and romantic decorative accents (without routing images through the backend).",
-      "reason": "The diff shows a reference to the gold icon set image in ReasonsSection, but does not show any added files under frontend/public/assets/generated, and the pattern overlay classes (pattern-cream/pattern-wine) are not shown referencing the required pattern PNGs. Since some added files were omitted/truncated, existence/usage of both required pattern images cannot be confirmed from the provided evidence.",
+      "id": "REQ-1",
+      "requirement": "Create a new production deployment from the user’s most recently edited draft state so live/production reflects the latest draft changes.",
+      "reason": "The diff shows a runtime backend method that assigns `production := draft`, but it does not show any actual deployment/promotion mechanism, nor does it show how the ‘most recently edited draft’ is persisted/loaded into the backend `draft` variable before publishing. No build/deploy pipeline, versioning, or draft persistence wiring is evidenced in the changes.",
       "evidence": [
-        "frontend/src/components/valentine/ReasonsSection.tsx",
-        "frontend/src/components/valentine/Section.tsx",
-        "frontend/src/index.css (truncated; pattern class definitions not visible)",
-        "File diff summary notes: \"Omitted files due to limits: added=4\""
+        "backend/main.mo",
+        "frontend/src/components/admin/PublishDraftBar.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "The draft URL remains accessible for further edits after publishing.",
+      "reason": "The diff adds token detection from the URL hash and a publish bar when any token exists, but it does not show any explicit handling to ensure the provided draft URL remains accessible for editing (e.g., preserving draft state, draft editing persistence, or separating draft vs production routes/hosts).",
+      "evidence": [
+        "frontend/src/hooks/useAdminTokenFromHash.ts",
+        "frontend/src/App.tsx",
+        "backend/main.mo"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Internet Identity authentication context/provider and actor creation plumbing (react-query + useActor) even though authentication is stated as not needed for this site.",
-      "reason": "BuildRequest explicitly says Internet Identity is allowed but not needed; the diff adds full II provider/hooks and actor query logic despite no requirement for identity, login, or backend calls.",
+      "description": "Admin-token-based UI banner (‘Draft Mode’) with a ‘Publish to Production’ button and success/error alerts.",
+      "reason": "The BuildRequest only asks to deploy the latest draft to production; it does not request adding new admin UI or token parsing from the URL hash. This is additional functionality beyond the stated deployment requirement.",
       "evidence": [
-        "frontend/src/main.tsx",
-        "frontend/src/hooks/useInternetIdentity.ts",
-        "frontend/src/hooks/useActor.ts",
-        "frontend/src/hooks/useQueries.ts"
-      ]
-    },
-    {
-      "description": "Use of lucide-react icon library for hearts and other icons across sections.",
-      "reason": "BuildRequest required using provided generated icon image assets for decorative accents; it did not request adding an icon component library dependency. The diff uses many lucide-react icons in UI components.",
-      "evidence": [
-        "frontend/src/components/valentine/HeroSection.tsx",
-        "frontend/src/components/valentine/ClosingSection.tsx",
-        "frontend/src/components/valentine/Footer.tsx",
-        "frontend/src/components/valentine/LoveLetterSection.tsx",
-        "frontend/src/components/valentine/MemoryCard.tsx",
-        "frontend/src/components/valentine/ReasonsSection.tsx"
-      ]
-    },
-    {
-      "description": "Footer attribution/marketing link to caffeine.ai with UTM tracking.",
-      "reason": "Not requested in BuildRequest and not part of any requirement/acceptance criteria.",
-      "evidence": [
-        "frontend/src/components/valentine/Footer.tsx"
+        "frontend/src/components/admin/PublishDraftBar.tsx",
+        "frontend/src/hooks/useAdminTokenFromHash.ts",
+        "frontend/src/App.tsx"
       ]
     }
   ],
-  "confidence": 0.66,
+  "confidence": 0.62,
   "changed_files": [
-    "all_files_summary.json",
     "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
     "frontend/src/App.tsx",
-    "frontend/src/components/valentine/CardSurface.tsx",
-    "frontend/src/components/valentine/ClosingSection.tsx",
-    "frontend/src/components/valentine/Footer.tsx",
-    "frontend/src/components/valentine/HeroSection.tsx",
-    "frontend/src/components/valentine/LoveLetterSection.tsx",
-    "frontend/src/components/valentine/MemoriesSection.tsx",
-    "frontend/src/components/valentine/MemoryCard.tsx",
-    "frontend/src/components/valentine/ReasonsSection.tsx",
-    "frontend/src/components/valentine/Section.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useClipboardCopy.ts",
-    "frontend/src/hooks/useInViewFade.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/components/admin/PublishDraftBar.tsx",
+    "frontend/src/hooks/useAdminTokenFromHash.ts",
     "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

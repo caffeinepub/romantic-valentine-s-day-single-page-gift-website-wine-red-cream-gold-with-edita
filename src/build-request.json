@@ -1,188 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Romantic Valentine’s Day single-page gift website (wine red/cream/gold) with editable sections",
+  "title": "Deploy the latest draft to production",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a single-page Valentine’s Day website with a warm, intimate, luxurious look using a deep wine red + soft creamy white palette with subtle gold accents, and apply the styling consistently across all sections.",
-      "target": "frontend",
+      "text": "Deploy the user’s most recently edited draft to production so the live/production site reflects the latest draft changes.",
+      "target": "unknown",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-1"
         ],
         "quotes": [
-          "The color palette should be deep wine red, soft creamy white, and subtle gold accents for elegance. The overall mood should feel warm, intimate, and luxurious."
+          "i have esited the draft now i want to deploy it"
         ]
       },
       "acceptanceCriteria": [
-        "All sections use the specified palette with consistent spacing, borders, and corner radius for a cohesive look.",
-        "Gold is used sparingly (e.g., dividers, icons, small highlights) and does not overpower the wine/cream base."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Implement the page structure with these sections in order: (1) Hero with title “To the Love of My Life” and a short romantic subtitle, (2) Love Letter editable area for a personal message, (3) Memories section with cards, (4) “Reasons I Love You” section with romantic text and/or icons (hearts/roses/stars), (5) Final closing section with a sweet Valentine’s message/quote that ends with the exact text “by vkayyy”.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "A hero section with a heartfelt title like “To the Love of My Life” and a short romantic subtitle",
-          "A love letter section where I can write a personal message",
-          "A memories section with photos or cards showing special moments together ( i should be able to paste and copy)",
-          "A reasons I love you section with romantic text or icons (hearts, roses, stars)",
-          "A final section with a sweet Valentine’s message or quote it should end with \"by vkayyy\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hero displays the specified title text exactly: “To the Love of My Life”.",
-        "Final section’s last line ends with the exact substring: by vkayyy.",
-        "All five sections are present and visibly distinct."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Add elegant, romantic typography: use a script or serif font for headings and a clean, readable font for body text, including consistent heading hierarchy (H1/H2/H3) and comfortable line-height for long-form reading in the love letter.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Typography should be elegant and romantic (script or serif fonts for headings, clean fonts for body text)."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Headings use a distinct script/serif style; body text uses a clean sans/legible font.",
-        "Long-form text (love letter) is readable on mobile and desktop (no overly small font sizes, adequate line-height)."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Style the background so that sections alternate between creamy white and wine red, including soft gradients, subtle heart/rose pattern overlays, and rounded cards for content blocks (love letter, memory cards, reasons cards).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "The background should alternate between creamy white sections and wine red sections, with soft gradients, subtle heart or rose patterns, and rounded cards."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Adjacent sections alternate between cream and wine backgrounds.",
-        "At least one subtle pattern overlay is visible on both a cream section and a wine section without harming text contrast.",
-        "Cards use rounded corners and consistent shadow/border treatment across sections."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Implement smooth, soft animations across the site: gentle fade-ins on section entry (e.g., on scroll into view), and subtle hover/focus transitions for interactive elements (buttons, cards, inputs).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Smooth, soft animations (fade-ins, gentle transitions)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Sections fade in as they enter the viewport (or on initial load for above-the-fold hero) with non-jarring durations/easing.",
-        "Buttons/cards/inputs have subtle hover/focus transitions (e.g., shadow/transform/color) consistent with the romantic theme.",
-        "Animations do not block interaction and do not cause noticeable layout shift."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Make the Love Letter section editable with an on-page text editor (e.g., textarea) and a styled preview area that renders the message in the site’s typography. Provide a one-click “Copy letter” control that copies the current letter text to the clipboard.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "A love letter section where I can write a personal message"
-        ]
-      },
-      "acceptanceCriteria": [
-        "User can type and edit the love letter directly on the page.",
-        "A preview panel updates as the user types (or on save) and matches the site’s styling.",
-        "A copy action copies the full letter text to the clipboard and provides clear UI feedback (e.g., “Copied”)."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Implement the Memories section as a grid of editable cards where the user can add/update content and easily paste/copy: allow adding a memory title + description, support pasting an image from the clipboard into a memory card (when the browser provides an image), and provide a “Copy” action per memory card to copy its text content (title + description).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "A memories section with photos or cards showing special moments together ( i should be able to paste and copy)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "User can add or edit at least a few memory cards (title + description) on-page.",
-        "Pasting an image into a memory card attaches/displays the image in that card (in browsers that support clipboard image paste).",
-        "Each memory card has a copy action that copies its textual content to the clipboard."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create a “Reasons I Love You” section with romantic text items and decorative icons (hearts, roses, stars) styled in the site palette (including subtle gold accents), displayed as a responsive set of rounded cards or list items.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "A reasons I love you section with romantic text or icons (hearts, roses, stars)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Section includes multiple reason items with either icon + text or icon-accented text.",
-        "Icons visually match the theme and do not look like default unstyled emojis (unless intentionally styled to fit).",
-        "Layout is responsive (e.g., 1 column on mobile, multi-column on larger screens)."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Add required generated images as static assets under frontend/public/assets/generated and use them in the UI for subtle background pattern overlays and romantic decorative accents (without routing images through the backend).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "subtle heart or rose patterns"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Generated images exist in frontend/public/assets/generated and are referenced directly by the frontend.",
-        "Pattern overlays are implemented using these assets and maintain readable contrast for text in each section."
+        "A new production deployment is created from the latest draft state (not an older build).",
+        "After deployment completes, the production/live site shows the same updated content as the draft when opened in an incognito window or after a hard refresh.",
+        "The draft URL remains accessible for further edits: https://unique-ivory-kkt-draft.caffeine.xyz/#caffeineAdminToken=640f49c9763a934d49fea9aed16a4ff2dca78e1f94594fb994a9e27de41b5beb"
       ]
     }
   ],
   "constraints": [
-    "Frontend must not modify any files under the immutable paths listed in SYSTEM_CONTEXT (compose existing UI components instead of editing them).",
-    "Do not add third-party authentication; only Internet Identity is allowed (not needed for this site).",
-    "Keep backend as a single Motoko actor; avoid adding backend features unless required by the request."
+    "Do not modify frontend immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend is single-actor (backend/main.mo); do not introduce additional backend services."
   ],
   "nonGoals": [
-    "User accounts, login, or personalization tied to identity.",
-    "Persisting the love letter/memories to the backend across devices (local, in-page editing is sufficient unless explicitly requested later).",
-    "Payments, messaging, email, or any real-time features."
+    "No new site features or UI redesign.",
+    "No changes to the Valentine page content unless explicitly provided by the user."
   ],
   "imageRequirements": {
-    "required": [
-      "Subtle seamless heart pattern overlay, wine-red on transparent (valentine-pattern-wine.dim_1600x1600.png)",
-      "Subtle seamless heart pattern overlay, creamy-white on transparent (valentine-pattern-cream.dim_1600x1600.png)",
-      "Minimal romantic icon set in subtle gold (heart, rose, star) on transparent (valentine-icons-gold.dim_512x512.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }
